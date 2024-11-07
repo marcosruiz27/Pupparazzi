@@ -22,3 +22,24 @@ export async function deletePuppy(id: number): Promise<void> {
     JSON.stringify({ puppies: updatedPuppies }, null, 2),
   )
 }
+
+export async function addPuppy(data: PuppyData): Promise<number> {
+  const puppies = await getAllPuppies()
+  const puppiesCopy = [...puppies]
+
+  const puppiesId = puppiesCopy.map((puppy) => puppy.id)
+  const newPuppyId = Math.max(...puppiesId) + 1
+
+  const newPuppy = {
+    id: newPuppyId,
+    ...data,
+  }
+
+  puppiesCopy.push(newPuppy)
+
+  await fs.writeFile(
+    './storage/data.json',
+    JSON.stringify({ puppies: puppiesCopy }, null, 2),
+  )
+  return newPuppyId
+}

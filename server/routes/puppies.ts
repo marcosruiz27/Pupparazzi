@@ -1,5 +1,5 @@
 import express from 'express'
-import { getPuppyById, deletePuppy } from '../../store.ts'
+import { getPuppyById, deletePuppy, addPuppy } from '../../store.ts'
 import * as fs from 'node:fs/promises'
 
 const router = express.Router()
@@ -24,6 +24,16 @@ router.delete('/:id', async (req, res) => {
   const id = Number(req.params.id)
   await deletePuppy(id)
   res.status(200).json({ message: 'Puppy has been Deleted' })
+})
+
+router.post('/', async (req, res) => {
+  try {
+    const id = await addPuppy(req.body)
+    res.json({ id })
+  } catch (error) {
+    console.error(error)
+    res.sendStatus(500)
+  }
 })
 
 export default router

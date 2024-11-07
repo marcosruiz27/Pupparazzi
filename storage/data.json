@@ -48,27 +48,6 @@
       "owner": "Ricky",
       "image": "/images/puppy7.jpg",
       "breed": "Labrador"
-    },
-    {
-      "id": 8,
-      "name": "Zeus",
-      "breed": "Golden Retriever",
-      "owner": "Arthur",
-      "image": "/images/puppy8.jpg"
-    },
-    {
-      "id": 9,
-      "name": "Douradinho",
-      "breed": "Golden Retriever",
-      "owner": "Arthur",
-      "image": "/images/puppy9.jpg"
-    },
-    {
-      "id": 10,
-      "name": "COCÔ",
-      "breed": "shtizu",
-      "owner": "Celly",
-      "image": "/images/puppy10.jpg"
     }
   ]
 }
